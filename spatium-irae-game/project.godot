@@ -10,9 +10,15 @@ config_version=3
 
 [application]
 
-config/name="spatium-irae-game"
+config/name="spatium-irae"
+run/main_scene="res://Scene.tscn"
 config/icon="res://icon.png"
 
-[rendering]
+[input]
 
-environment/default_environment="res://default_env.tres"
+ui_up=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+ ]
+ui_down=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+ ]
+game_action=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
