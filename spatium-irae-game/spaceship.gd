@@ -46,3 +46,4 @@ func handle_logging():
 func handle_death():
 	if (trottle >= trottleLimit):
 		self.queue_free()
+		get_tree().reload_current_scene()
