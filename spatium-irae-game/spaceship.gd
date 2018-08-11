@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 0
+var speed = 400
 var acceleration = 2
 var spacebarLimit = 3
 
@@ -9,7 +9,9 @@ var trottleAcceleration = 4
 var trottleWarning = 750
 var trottleLimit = 1000
 
-var velocity = Vector2()
+var actionKey = "game_action"
+
+var velocity = Vector2(speed, 0)
 
 func _ready():
 	set_process(true)
@@ -22,15 +24,14 @@ func _process(delta):
 	position += velocity * delta
 
 func handle_controls():
-	if (Input.is_action_just_pressed("game_action") && spacebarLimit >= 0):
+	if (Input.is_action_just_pressed(actionKey) && spacebarLimit >= 0):
 		spacebarLimit -= 1
 		print(spacebarLimit)
-	if (Input.is_action_pressed("game_action") && spacebarLimit >= 0):
+	if (Input.is_action_pressed(actionKey) && spacebarLimit >= 0):
 		velocity.x += acceleration
 		trottle += trottleAcceleration
-	if (!Input.is_action_pressed("game_action") && velocity.x != 0):
+	if (!Input.is_action_pressed(actionKey) && velocity.x != 0):
 		velocity.x -= acceleration/2 if trottle > trottleWarning else acceleration
-		
 		if (trottle > 0):
 			trottle -= trottleAcceleration * 2
 		else:
@@ -47,3 +48,6 @@ func handle_death():
 	if (trottle >= trottleLimit):
 		self.queue_free()
 		get_tree().reload_current_scene()
+	elif (velocity.x <= 0 and spacebarLimit <= 0):
+	    self.queue_free()
+	    get_tree().reload_current_scene()
