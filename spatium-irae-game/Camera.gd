@@ -10,9 +10,9 @@ func _ready():
 	camera_offset.x = -200
 	camera_position = player.position
 	camera_position -= camera_offset
-	set_process(true)
+	set_physics_process(true)
 
-func _process(delta):
+func _physics_process(delta):
 	if (scene.has_node("player")):
 		camera_position = player.position
 		camera_position -= camera_offset

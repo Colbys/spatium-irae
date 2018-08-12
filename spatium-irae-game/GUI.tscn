@@ -1,31 +1,36 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://GUI.gd" type="Script" id=1]
-[ext_resource path="res://GUI/label_HP_bg.png" type="Texture" id=2]
-[ext_resource path="res://GUI/label_HP.png" type="Texture" id=3]
-[ext_resource path="res://GUI/lifebar_bg.png" type="Texture" id=4]
-[ext_resource path="res://GUI/lifebar_fill.png" type="Texture" id=5]
-[ext_resource path="res://GUI/bombs_icon.png" type="Texture" id=6]
+[ext_resource path="res://GUI/lifebar_bg.png" type="Texture" id=2]
+[ext_resource path="res://GUI/lifebar_over.png" type="Texture" id=3]
+[ext_resource path="res://GUI/lifebar_fill.png" type="Texture" id=4]
+[ext_resource path="res://GUI/label_HP_bg.png" type="Texture" id=5]
+[ext_resource path="res://DejaVuSansCondensed-BoldOblique.ttf" type="DynamicFontData" id=6]
 
-[node name="GUI" type="MarginContainer"]
+[sub_resource type="DynamicFont" id=1]
 
-editor/display_folded = true
+size = 16
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="GUI" type="MarginContainer" index="0"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 20.0
-margin_bottom = 20.0
+margin_right = 1280.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Margin" ]
+_sections_unfolded = [ "Size Flags" ]
 
 [node name="UI" type="HBoxContainer" parent="." index="0"]
 
@@ -34,8 +39,8 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
-margin_right = 628.0
-margin_bottom = 53.0
+margin_right = 1280.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -43,7 +48,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
-_sections_unfolded = [ "Size Flags" ]
 
 [node name="Bars" type="VBoxContainer" parent="UI" index="0"]
 
@@ -51,13 +55,13 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 508.0
-margin_bottom = 53.0
+margin_right = 473.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
+size_flags_horizontal = 2
 size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Size Flags" ]
@@ -68,8 +72,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 508.0
-margin_bottom = 53.0
+margin_right = 473.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -78,89 +82,14 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Count" type="MarginContainer" parent="UI/Bars/Bar" index="0"]
+[node name="Gauge" type="TextureProgress" parent="UI/Bars/Bar" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 108.0
-margin_bottom = 53.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-
-[node name="Background" type="NinePatchRect" parent="UI/Bars/Bar/Count" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 8.0
-margin_right = 108.0
-margin_bottom = 53.0
-rect_min_size = Vector2( 100, 40 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Rect" ]
-
-[node name="Title" type="TextureRect" parent="UI/Bars/Bar/Count/Background" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 7.0
-margin_right = 50.0
-margin_bottom = 47.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 3 )
-stretch_mode = 4
-_sections_unfolded = [ "Rect" ]
-
-[node name="Number" type="Label" parent="UI/Bars/Bar/Count/Background" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -10.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "10"
-align = 2
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
-
-[node name="Gauge" type="TextureProgress" parent="UI/Bars/Bar" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 112.0
-margin_right = 508.0
-margin_bottom = 53.0
+margin_right = 473.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -174,41 +103,31 @@ page = 0.0
 value = 75.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 4 )
-texture_over = null
-texture_progress = ExtResource( 5 )
+texture_under = ExtResource( 2 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 _sections_unfolded = [ "Textures" ]
 
-[node name="Tween" type="Tween" parent="UI/Bars" index="1"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
 [node name="Counters" type="HBoxContainer" parent="UI" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 512.0
-margin_right = 620.0
-margin_bottom = 53.0
+margin_left = 1164.0
+margin_right = 1272.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
+size_flags_horizontal = 9
 size_flags_vertical = 1
-alignment = 0
-_sections_unfolded = [ "Anchor" ]
+alignment = 2
+_sections_unfolded = [ "Margin", "Size Flags" ]
 
 [node name="Counter" type="MarginContainer" parent="UI/Counters" index="0"]
 
@@ -217,7 +136,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 108.0
-margin_bottom = 53.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -233,7 +152,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
 margin_right = 108.0
-margin_bottom = 53.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 100, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -241,46 +160,31 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="Icon" type="TextureRect" parent="UI/Counters/Counter/Background" index="0"]
-
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -80.0
-margin_top = -40.5
-margin_bottom = 39.5
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 6 )
-stretch_mode = 4
-_sections_unfolded = [ "Rect" ]
-
-[node name="Number" type="Label" parent="UI/Counters/Counter/Background" index="1"]
+[node name="Number" type="Label" parent="UI/Counters/Counter/Background" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_right = 95.0
+margin_bottom = 28.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
 text = "10"
+align = 2
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_fonts" ]
+_sections_unfolded = [ "custom_fonts" ]
 
 

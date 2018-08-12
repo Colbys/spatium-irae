@@ -19,10 +19,10 @@ func _on_EnemyTimer_timeout():
 		enemy_spawn_location.rotation = PI
 	# print("Position: ", enemy_spawn_location.position)
 	# print("Rotation: ", enemy_spawn_location.rotation)
-	var mob = Mob.instance()
-	add_child(mob)
-	var direction = enemy_spawn_location.rotation + PI / 2
-	mob.position = enemy_spawn_location.position
-	direction += rand_range(-PI / 4, 0) if enemy_spawn_location.position.y == 720 else rand_range(0, PI / 4)
-	mob.rotation = direction
-	mob.set_linear_velocity(Vector2(rand_range(mob.min_speed, mob.max_speed), 0).rotated(direction))
+	#var mob = Mob.instance()
+	#add_child(mob)
+	#var direction = enemy_spawn_location.rotation + PI / 2
+	#mob.position = enemy_spawn_location.position
+	#direction += rand_range(-PI / 4, 0) if enemy_spawn_location.position.y == 720 else rand_range(0, PI / 4)
+	#mob.rotation = direction
+	#mob.set_linear_velocity(Vector2(rand_range(mob.min_speed, mob.max_speed), 0).rotated(direction))

@@ -11,16 +11,16 @@ var trottleLimit = 1000
 
 var actionKey = "game_action"
 
+var is_playable = true
+
 var velocity = Vector2(speed, 0)
 
 func _ready():
-	set_process(true)
+	set_physics_process(true)
 
-func _process(delta):
-	handle_controls()
-	handle_trottling()
-	#handle_logging()
-	handle_death()
+func _physics_process(delta):
+	self.handle_controls()
+	self.handle_death()
 	position += velocity * delta
 
 func handle_controls():
@@ -37,9 +37,6 @@ func handle_controls():
 			trottle -= trottleAcceleration * 2
 		else:
 			trottle = 0
-
-func handle_trottling():
-	pass
 
 func handle_logging():
 	print("Speed: ", velocity.x)
