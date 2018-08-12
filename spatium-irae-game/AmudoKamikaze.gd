@@ -3,11 +3,13 @@ extends RigidBody2D
 export (int) var min_speed # Minimum speed range.
 export (int) var max_speed # Maximum speed range.
 
-func _ready():
-	set_process(true)
+onready var sprite = get_node("Sprite")
 
-func _process(delta):
-	self.rotate(0.05)
+func _ready():
+	set_physics_process(true)
+
+func _physics_process(delta):
+	sprite.rotate(0.05)
 
 func _on_Visibility_screen_exited():
     queue_free()

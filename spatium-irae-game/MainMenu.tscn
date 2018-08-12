@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/Radion.png" type="Texture" id=2]
+[ext_resource path="res://DejaVuSansCondensed-BoldOblique.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/images/AmudoKamikaze.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 120
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 40
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Settings" ]
+
+[node name="MainMenu" type="Node2D"]
+
+script = ExtResource( 1 )
+
+[node name="Radion" type="Sprite" parent="." index="0"]
+
+position = Vector2( 1091.66, 398.025 )
+rotation = -0.564193
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+vframes = 4
+_sections_unfolded = [ "Transform" ]
+
+[node name="Title" type="Label" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 28.0
+margin_top = 130.0
+margin_right = 812.0
+margin_bottom = 271.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Spatium Irae"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Label" type="Label" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 38.0
+margin_top = 460.0
+margin_right = 498.0
+margin_bottom = 581.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "space: start game"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="AmudoKamikaze" type="Sprite" parent="." index="3"]
+
+position = Vector2( 960, 640 )
+rotation = -0.484103
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AmudoKamikaze2" type="Sprite" parent="." index="4"]
+
+position = Vector2( 700, 630 )
+rotation = 0.712847
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AmudoKamikaze3" type="Sprite" parent="." index="5"]
+
+position = Vector2( 770, 440 )
+rotation = 0.605377
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+

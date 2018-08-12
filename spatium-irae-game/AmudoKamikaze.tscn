@@ -30,8 +30,8 @@ angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
-min_speed = 300
-max_speed = 500
+min_speed = 350
+max_speed = 450
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
