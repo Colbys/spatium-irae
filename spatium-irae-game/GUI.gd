@@ -6,6 +6,7 @@ onready var trottle_tween = get_node("UI/Bars/Tween")
 onready var space_number = get_node("UI/Counters/Counter/Background/Number")
 
 onready var player = get_node("../../player")
+onready var scene = get_node("../../../Scene")
 
 func _ready():
 	var player_max_trottle = player.trottleLimit
@@ -13,6 +14,6 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	trottle_bar.value = player.trottle
-	space_number.text = str(player.spacebarLimit)
-	pass
+	if (scene.has_node("player")):
+		trottle_bar.value = player.trottle
+		space_number.text = str(player.spacebarLimit)
