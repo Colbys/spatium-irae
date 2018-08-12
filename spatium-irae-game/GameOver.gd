@@ -10,4 +10,4 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("game_action"):
-		get_tree().change_scene("res://Scene.tscn")
+		get_tree().change_scene("res://MainMenu.tscn")
