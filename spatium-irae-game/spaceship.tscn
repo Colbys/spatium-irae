@@ -6,9 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 11.8182, 10 )
+extents = Vector2( 11.0854, 7.99259 )
 
-[node name="player" type="Area2D" index="0"]
+[node name="player" type="Area2D"]
 
 scale = Vector2( 3, 1.5 )
 input_pickable = true
@@ -29,8 +29,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( -1.90735e-06, 1.90735e-06 )
-scale = Vector2( 2.82051, 3.07692 )
+position = Vector2( -11.0597, 0 )
+scale = Vector2( 3.47454, 2.50232 )
 shape = SubResource( 1 )
 
 

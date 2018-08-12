@@ -1,8 +1,8 @@
 extends Area2D
 
-var speed = 400
+var speed = 0 # 400
 var acceleration = 2
-var spacebarLimit = 3
+var spacebarLimit = 8
 
 var trottle = 0
 var trottleAcceleration = 4
@@ -19,7 +19,7 @@ func _ready():
 func _process(delta):
 	handle_controls()
 	handle_trottling()
-	handle_logging()
+	#handle_logging()
 	handle_death()
 	position += velocity * delta
 

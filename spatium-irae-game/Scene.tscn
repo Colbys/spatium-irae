@@ -1,23 +1,49 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://template-bg.jpg" type="Texture" id=1]
-[ext_resource path="res://spaceship.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Camera.gd" type="Script" id=3]
-[ext_resource path="res://GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scene.gd" type="Script" id=1]
+[ext_resource path="res://AmudoKamikaze.tscn" type="PackedScene" id=2]
+[ext_resource path="res://template-bg.png" type="Texture" id=3]
+[ext_resource path="res://spaceship.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Camera.gd" type="Script" id=5]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=6]
 
-[node name="Scene" type="Node"]
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20620, 0, 0, 0, 0, 0, 20620, 720, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1280, 0, 0, 0, 0, 0, 1280, 720, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0 )
+}
+
+[node name="Scene" type="Node" index="0"]
+
+script = ExtResource( 1 )
+Mob = ExtResource( 2 )
 
 [node name="template-bg" type="Sprite" parent="." index="0"]
 
-position = Vector2( 1083.36, 298.498 )
-scale = Vector2( 1.28902, 1.28902 )
-texture = ExtResource( 1 )
+position = Vector2( 10180.4, 335 )
+scale = Vector2( 1.31014, 1.625 )
+texture = ExtResource( 3 )
 
-[node name="player" parent="." index="1" instance=ExtResource( 2 )]
+[node name="player" parent="." index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 420, 300 )
 
-[node name="Camera" type="Camera2D" parent="." index="2"]
+[node name="EnemyTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = false
+autostart = false
+
+[node name="Camera" type="Camera2D" parent="." index="3"]
 
 anchor_mode = 1
 rotating = false
@@ -41,14 +67,48 @@ drag_margin_bottom = 0.0
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 3 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Limit" ]
 
-[node name="GUI" parent="Camera" index="0" instance=ExtResource( 4 )]
+[node name="GUI" parent="Camera" index="0" instance=ExtResource( 6 )]
 
 margin_left = -630.0
 margin_top = -350.0
 margin_right = -2.0
 margin_bottom = -297.0
+
+[node name="EnemyPath" type="Path2D" parent="." index="4"]
+
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+curve = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="EnemySpawnLocation" type="PathFollow2D" parent="EnemyPath" index="0"]
+
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="EnemyPathTest" type="Path2D" parent="." index="5"]
+
+visible = false
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+curve = SubResource( 2 )
+
+[node name="EnemySpawnLocation" type="PathFollow2D" parent="EnemyPathTest" index="0"]
+
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
 
 
